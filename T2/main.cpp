@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "menu.h"
-#include "introducir.h"
+
 
 using namespace std;
 

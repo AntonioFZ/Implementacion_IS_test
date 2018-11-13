@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
 	//Creacion Variables
-   int a;
+	int a;
 	int b;
 	int c;
 	
