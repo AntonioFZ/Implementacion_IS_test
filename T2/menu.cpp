@@ -2,12 +2,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <cctype>
 #include "introducir.h"
 
 using namespace std;
 
 int Menu(int clave){
-	int opcion = 0;
+	int opcion;
 	cout<<"MENÚ DE OPCIONES:\n";
 	cout<<"  1. Introducir un alumno.\n";
 	cout<<"  2. Mostrar Agenda.\n";
@@ -22,9 +23,10 @@ int Menu(int clave){
 	cin>>opcion;
 
 	//Verificar la entrada de numeros
-	/*if(isdigit(opcion)==false){
+	/*if((isdigit(opcion)==false)||(opcion<1)||(opcion>9)){
 		cout<<"Introduce un numero\n";
 		system("clear");
+		opcion=0;
 		Menu(clave);	
 	}*/
 
