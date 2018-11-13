@@ -9,6 +9,7 @@
 
 using namespace std;
 
+//Declaracion de variables
 struct agenda{
 	int DNI;
 	string nombre;
@@ -24,7 +25,7 @@ struct agenda{
 
 int controlador = 0;
 
-
+//Funcion MAIN
 int main(){
 
 	//Limpiar Pantalla
@@ -51,6 +52,8 @@ int main(){
 	//Selector de clave
 	cout<<"Introduzca la clave de usuario\n";
 	cin>>clave;
+	
+	//Comprobacion de caracter introducido
 	while(1){
 		if(cin.fail()){
 			cin.clear();
@@ -61,6 +64,8 @@ int main(){
 		if(!cin.fail())
 		break;
 	}
+	
+	//Comparador de clave
 	if (clave==a){
 		cout<<"Usted ha entrado como coordinador\n";
 		sleep(1);
