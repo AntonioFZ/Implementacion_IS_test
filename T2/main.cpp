@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <limits>
 #include "menu.h"
 
 
@@ -50,6 +51,16 @@ int main(){
 	//Selector de clave
 	cout<<"Introduzca la clave de usuario\n";
 	cin>>clave;
+	while(1){
+		if(cin.fail()){
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			cout<<"Has introducido un caracter erroneo, vuelve a introducirlo: ";
+			cin>>clave;
+		}
+		if(!cin.fail())
+		break;
+	}
 	if (clave==a){
 		cout<<"Usted ha entrado como coordinador\n";
 		sleep(1);
