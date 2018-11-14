@@ -1,2 +1,2 @@
-void Introducir_alumno(int clave);
+void Introducir_alumno(bool coordinador);
 

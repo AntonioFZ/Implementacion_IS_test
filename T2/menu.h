@@ -1,2 +1,2 @@
-int Menu(int clave);
+int Menu(bool coordinador);
 

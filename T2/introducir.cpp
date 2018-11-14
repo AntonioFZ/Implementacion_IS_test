@@ -6,12 +6,12 @@
 
 using namespace std;
 
-void Introducir_alumno(int clave){
+void Introducir_alumno(bool coordinador){
 	system("clear");
 	cout<<"Esto es un pinche test\n";
 	sleep(1);
 	system("clear");
-	Menu(clave);
+	Menu(coordinador);
 
 
 }

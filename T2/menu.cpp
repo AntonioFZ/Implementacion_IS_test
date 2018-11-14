@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int Menu(int clave){
+int Menu(bool coordinador){
 	int opcion;
 	cout<<"MENÚ DE OPCIONES:\n\n";
 	cout<<"	1. Introducir un alumno.\n";
@@ -27,7 +27,7 @@ int Menu(int clave){
 
 	switch(opcion){
 
-		case 1:	Introducir_alumno(clave);
+		case 1:	Introducir_alumno(coordinador);
 					sleep(1);
 					break;
 
@@ -51,11 +51,11 @@ int Menu(int clave){
 					sleep(1);
 					break;
 
-		case 7:	if(clave!=1){
+		case 7:	if(coordinador==false){
 						cout<<"No tienes acceso a esta opción.\nVuelta al MENÚ DE OPCIONES\n";
 						sleep(1);
 						system("clear");
-						Menu(clave);
+						Menu(coordinador);
 					} else {
 						cout<<"CS\n";
 						sleep(1);
@@ -88,7 +88,7 @@ int Menu(int clave){
 			cout<<"Has introducido un caracter erroneo, vuelve a introducirlo\n";
 			sleep(1);
 			system("clear");
-			Menu(clave);
+			Menu(coordinador);
 		}
 		if(!cin.fail())
 		break;
@@ -102,6 +102,6 @@ int Menu(int clave){
 	//Vuelta al menú
 	sleep(1);
 	system("clear");
-	Menu(clave);
+	Menu(coordinador);
 	return 0;
 }

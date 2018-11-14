@@ -36,6 +36,7 @@ int main(){
 	int a;
 	int b;
 	int c;
+	bool coordinador;
 
 	//Lectura Claves y comprabacion fichero
 	FILE* f;
@@ -68,10 +69,12 @@ int main(){
 	//Comparador de clave
 	if (clave==a){
 		cout<<"Usted ha entrado como coordinador\n";
+		coordinador=true;
 		sleep(1);
 		system("clear");
 	} else if ((clave==b)||(clave==c)){
 		cout<<"Usted ha entrado como ayudante\n";
+		coordinador=false;
 		sleep(1);
 		system("clear");
 	} else {
@@ -82,7 +85,7 @@ int main(){
 	}
 
 	//Llamada a la funcion MENU DE OPCIONES
-	Menu(clave);
+	Menu(coordinador);
 	system("clear");
 	return 0;
 }
