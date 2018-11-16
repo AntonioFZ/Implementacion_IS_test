@@ -9,7 +9,7 @@ using namespace std;
 
 int Menu(bool coordinador){
 	int opcion;
-	cout<<"	\033[35;1;4m\n	MENÚ DE OPCIONES:\033[0m\n\n";
+	cout<<"	\033[35;1;4m\n	MENÚ DE OPCIONES\033[0m\033[35;1m:\033[0m\n\n";
 	cout<<"	\033[36;1m1.\033[0m \033[1mIntroducir un alumno.\033[0m\n";
 	cout<<"	\033[36;1m2.\033[0m \033[1mMostrar Agenda.\033[0m\n";
 	cout<<"	\033[36;1m3.\033[0m \033[1mBuscar Alumno.\033[0m\n";
@@ -21,61 +21,61 @@ int Menu(bool coordinador){
 	cout<<"	\033[36;1m9.\033[0m \033[1mCargar Copia de Seguridad.\033[0m\n";
 	cout<<"	\033[36;1m10.\033[0m \033[1mVolver al selector.\033[0m\n";
 	cout<<"	\033[36;1m11.\033[0m \033[1mCerrar el programa.\033[0m\n\n";
-	cout<<"	\033[1;34mSeleccione la opción que desea usar: \033[0m";
+	cout<<"	\033[1;4;34mSeleccione la opción que desea usar\033[0m\033[1;34m:\033[0m ";
 	cin>>opcion;
 	cout<<"\n";
 
 	switch(opcion){
 
-		case 1:	cout<<"\033[32;1m	Introducir Alumno\033[0m\n";
+		case 1:	cout<<"\033[32;1m	Introducir Alumno.\033[0m\n";
 					sleep(1);
 					Introducir_alumno(coordinador);
 					sleep(1);
 					break;
 
-		case 2:	cout<<"\033[32;1m	Mostrar\033[0m\n";
+		case 2:	cout<<"\033[32;1m	Mostrar Agenda.\033[0m\n";
 					sleep(1);
 					break;
 
-		case 3:	cout<<"\033[32;1m	Buscar\033[0m\n";
+		case 3:	cout<<"\033[32;1m	Buscar Alumno.\033[0m\n";
 					sleep(1);
 					break;
 
-		case 4:	cout<<"\033[32;1m	Modificar\033[0m\n";
+		case 4:	cout<<"\033[32;1m	Modificar Alumno.\033[0m\n";
 					sleep(1);
 					break;
 
-		case 5:	cout<<"\033[32;1m	Borrar\033[0m\n";
+		case 5:	cout<<"\033[32;1m	Borrar Alumno.\033[0m\n";
 					sleep(1);
 					break;
 
-		case 6:	cout<<"\033[32;1m	Guardar\033[0m\n";
+		case 6:	cout<<"\033[32;1m	Guardar Agenda.\033[0m\n";
 					sleep(1);
 					break;
 
 		case 7:	if(coordinador==false){
-						cout<<"\033[1;31m	No tienes acceso a esta opción.\n	Vuelta al MENÚ DE OPCIONES\033[0m\n";
+						cout<<"\033[1;31m	No tienes acceso a esta opción.\n	Vuelta al MENÚ DE OPCIONES.\033[0m\n";
 						sleep(1);
 						system("clear");
 						Menu(coordinador);
 					} else {
-						cout<<"\033[32;1m	Crear Copia de Seguridad\033[0m\n";
+						cout<<"\033[32;1m	Crear Copia de Seguridad.\033[0m\n";
 						sleep(1);
 						break;
 					}
 					break;
 
-		case 8:	cout<<"\033[32;1m	Cargar Agenda\033[0m\n";
+		case 8:	cout<<"\033[32;1m	Cargar Agenda.\033[0m\n";
 					sleep(1);
 					break;
 
 		case 9:	if(coordinador==false){
-						cout<<"\033[1;31m	No tienes acceso a esta opción.\n	Vuelta al MENÚ DE OPCIONES\033[0m\n";
+						cout<<"\033[1;31m	No tienes acceso a esta opción.\n	Vuelta al MENÚ DE OPCIONES.\033[0m\n";
 						sleep(1);
 						system("clear");
 						Menu(coordinador);
 					} else {
-						cout<<"\033[32;1m	Cargar Copia de Seguridad\033[0m\n";
+						cout<<"\033[32;1m	Cargar Copia de Seguridad.\033[0m\n";
 						sleep(1);
 						break;
 					}
@@ -86,7 +86,7 @@ int Menu(bool coordinador){
 					main();
 					break;
 
-		case 11: cout<<"\033[32;1m	Cerrar\n";
+		case 11: cout<<"\033[32;1m	Cerrar.\033[0m\n";
 					sleep(1);
 					system("clear");
 					exit(0);
@@ -99,7 +99,7 @@ int Menu(bool coordinador){
 		if(cin.fail()){
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(),'\n');
-			cout<<"\033[1;31mHas introducido un caracter erroneo, vuelve a introducirlo\033[0m\n";
+			cout<<"\033[1;31m	Has introducido un caracter erroneo, vuelve a introducirlo.\033[0m\n";
 			sleep(1);
 			system("clear");
 			Menu(coordinador);
@@ -109,8 +109,8 @@ int Menu(bool coordinador){
 	}
 	
 	//Numero no válido
-	if((opcion<1)||(opcion>10)){
-		cout<<"Opción no válida\n";
+	if((opcion<1)||(opcion>11)){
+		cout<<"	\033[31;1mOpción no válida.\033[0m\n";
 	}
 	
 	//Vuelta al menú
