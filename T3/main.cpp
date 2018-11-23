@@ -1,11 +1,14 @@
-#include "main.h"
+#include <iostream>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <limits>
 
 using namespace std;
 
+#include "menu.h"
 
 //Declaracion de variables
-
-
 
 
 //Funcion MAIN

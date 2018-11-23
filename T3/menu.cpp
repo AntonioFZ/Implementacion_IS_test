@@ -1,11 +1,22 @@
-#include "menu.h"
+#include <iostream>
+#include <stdlib.h>
+#include <unistd.h>
+#include <limits>
 
 using namespace std;
+
+#include "agenda.h"
+#include "main.h"
+
 
 int n_alumnos = 0;
 
 int Menu(bool coordinador){
+	//Creacion de Variables
 	int opcion;
+
+	//Limpieza de pantalla
+	system("clear");
 
 	//Muestra el MENU DE OPCIONES
 	cout<<"	\033[35;1;4m\n	MENÚ DE OPCIONES\033[0m\033[35;1m:\033[0m\n\n";
@@ -45,6 +56,7 @@ int Menu(bool coordinador){
 					}
 
 		case 2:	cout<<"\033[32;1m	Mostrar Agenda.\033[0m\n";
+					Mostrar_Agenda(coordinador);
 					sleep(1);
 					break;
 
