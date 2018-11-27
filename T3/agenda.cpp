@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <fstream>
+#include <limits>
 
 using namespace std;
 
@@ -23,38 +24,83 @@ void IntroducirAlumno(bool coordinador, int *n_alumnos){
 	int esLiderSource;
 	Persona[*n_alumnos].lider = false;
 	
-	cout<<"\nINTRODUCIR ALUMNO\n";
+	cout<<"\033[35;4;1m\n	INTRODUCIR ALUMNO\033[0m\n\n";
 	
-	cout<< "\033[1;4;34mIntroduce el DNI\033[0m\n";
+	cout<< "\033[1;34m	Introduce el DNI : \033[0m";
 	cin>> newDNI;
+	while(1){
+		if(cin.fail()){
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			cout<<"\n\033[1;31m	Caracter invalido, volviendo al Menu\033[0m\n";
+			sleep(1);
+			Menu(coordinador);
+		}
+		if(!cin.fail())
+		break;
+	}
 	checkDNI(newDNI,n_alumnos,coordinador);
 
-	cout<< "\033[1;4;34mIntroduce el nombre\033[0m\n";
-	cin>> Persona[*n_alumnos].nombre;
-
-	cout<< "\033[1;4;34mIntroduce el apellidos\033[0m \n";
+	cout<< "\033[1;34m	Introduce el nombre : \033[0m";
+	cin>>Persona[*n_alumnos].nombre;
+	
+	cout<< "\033[1;34m	Introduce el apellidos : \033[0m ";
 	cin>> Persona[*n_alumnos].apellidos;
-
-	cout<< "\033[1;4;34mIntroduce el telefono\033[0m\n";
+	
+	cout<< "\033[1;34m	Introduce el telefono : \033[0m";
 	cin>> Persona[*n_alumnos].telefono;
-
-	cout<< "\033[1;4;34mIntroduce el email\033[0m \n";
+		while(1){
+		if(cin.fail()){
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			cout<<"\n\033[1;31m	Caracter invalido, volviendo al Menu\033[0m\n";
+			sleep(1);
+			Menu(coordinador);
+		}
+		if(!cin.fail())
+		break;
+	}
+	
+	cout<< "\033[1;34m	Introduce el email : \033[0m";
 	cin>> newEmail;
 	checkEmail(newEmail,n_alumnos,coordinador);
 
-	cout<< "\033[1;4;34mIntroduce el domicilio\033[0m\n";
+	cout<< "\033[1;34m	Introduce el domicilio : \033[0m";
 	cin>> Persona[*n_alumnos].domicilio;
-
-	cout<< "\033[1;4;34mIntroduce el curso\033[0m \n";
-	cin>> Persona[*n_alumnos].curso;
-
-	cout<< "\033[1;4;34mIntroduce la fecha de nacimiento\033[0m\n";
+	
+	cout<< "\033[1;34m	Introduce el curso : \033[0m";
+	cin>> Persona[*n_alumnos].curso;	
+		while(1){
+		if(cin.fail()){
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			cout<<"\n\033[1;31m	Caracter invalido, volviendo al Menu\033[0m\n";
+			sleep(1);
+			Menu(coordinador);
+		}
+		if(!cin.fail())
+		break;
+	}
+	
+	cout<< "\033[1;34m	Introduce la fecha de nacimiento : \033[0m";
 	cin>> Persona[*n_alumnos].fecha;
-
-	cout<< "\033[1;4;34mIntroduce el grupo al que pertenece\033[0m\n";
+	
+	cout<< "\033[1;34m	Introduce el grupo al que pertenece : \033[0m";
 	cin>> Persona[*n_alumnos].grupo;
+	
+		while(1){
+		if(cin.fail()){
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			cout<<"\n\033[1;31m	Caracter invalido, volviendo al Menu\033[0m\n";
+			sleep(1);
+			Menu(coordinador);
+		}
+		if(!cin.fail())
+		break;
+	}
 
-	cout<< "\033[1;4;34m¿Es líder? Introduce 1 si es Si\nIntroduce 2 si es No\033[0m\n";
+	cout<< "\033[1;34m	¿Es líder? 1 -> Si, 2->No : \033[0m";
 	cin>> esLiderSource;
 
 	switch (esLiderSource){
@@ -68,9 +114,23 @@ void IntroducirAlumno(bool coordinador, int *n_alumnos){
 			Persona[*n_alumnos].lider = false;
 		break;
 	}
+	
+	while(1){
+		if(cin.fail()){
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(),'\n');
+			cout<<"\n\033[1;31m	Caracter invalido, volviendo al Menu\033[0m\n";
+			sleep(1);
+			Menu(coordinador);
+		}
+		if(!cin.fail())
+		break;
+	}
 
+	//Suma 1 alumno a la lista
 	(*n_alumnos)=(*n_alumnos)+1;
-	cout<<*n_alumnos;
+
+	//Vuelve al Menu
 	Menu(coordinador);
 }
 
@@ -120,19 +180,22 @@ void Mostrar_Agenda(bool coordinador,int *n_alumnos){
 
 	//Creacion de fichero
 	ofstream ficheroSalida;
-	ficheroSalida.open ("mostrar.html");
-	ficheroSalida << "<html><head><title>Listado de alumnos</title></head><body><h1>Listado de alumnos</h1><table><tr><td><strong>Nombre</strong></td><td><strong>Apellidos</strong></td><td><strong>Telefono</strong></td><td><strong>Email</strong></td><td><strong>Domicilio</strong></td><td><strong>Curso</strong></td><td><strong>Fecha</strong></td><td><strong>Grupo</strong></td><td><strong>Lider</strong></td><td><strong>DNI</strong></td></tr>";
+	ficheroSalida.open ("temporal.html");
+	ficheroSalida << "<html><head><title>Listado de alumnos</title></head><body><h1>Listado de alumnos</h1><table border = 10><tr><td><strong>Nombre</strong></td><td><strong>Apellidos</strong></td><td><strong>Telefono</strong></td><td><strong>Email</strong></td><td><strong>Domicilio</strong></td><td><strong>Curso</strong></td><td><strong>Fecha</strong></td><td><strong>Grupo</strong></td><td><strong>Lider</strong></td><td><strong>DNI</strong></td></tr>";
 	for(i=0;i<*n_alumnos;i++){
 		ficheroSalida << "<tr><td>"<<Persona[i].nombre<<"</td><td>"<<Persona[i].apellidos<<"</td><td>"<<Persona[i].telefono<<"</td><td>"<<Persona[i].email<<"</td><td>"<<Persona[i].domicilio<<"</td><td>"<<Persona[i].curso<<"</td><td>"<<Persona[i].fecha<<"</td><td>"<<Persona[i].grupo<<"</td><td>"<<Persona[i].lider<<"</td><td>"<<Persona[i].DNI<<"</td></tr>";
 	}
+
+	ficheroSalida << "</table></body></html>";
 
 	//Cerrar fichero
 	ficheroSalida.close();
 
 	//Abrir fichero
-	system("firefox mostrar.html");
 	sleep(1);
-	system("rm mostrar.html");
+	system("firefox temporal.html &");
+	sleep(1);
+	system("rm temporal.html");
 
 	Menu(coordinador);
 
