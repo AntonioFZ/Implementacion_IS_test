@@ -4,11 +4,11 @@
 using namespace std;
 
 
-void Introducir_alumno(bool coordinador,int *n_alumnos);
-void checkEmail(string email);
-void checkLider(int grupo);
-void checkDNI(int DNI);
+void IntroducirAlumno(bool coordinador,int *n_alumnos);
+void checkEmail(string email,int *n_alumnos,bool coordinador);
+void checkLider(int grupo,int *n_alumnos,bool coordinador);
+void checkDNI(int DNI,int *n_alumnos,bool coordinador);
 
-void Mostrar_Agenda(bool coordinador);
+void Mostrar_Agenda(bool coordinador,int *n_alumnos);
 
 #endif

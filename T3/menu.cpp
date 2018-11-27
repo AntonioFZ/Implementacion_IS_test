@@ -44,7 +44,7 @@ int Menu(bool coordinador){
 		case 1:	if(n_alumnos<150){
 						cout<<"\033[32;1m	Introducir Alumno.\033[0m\n";
 						sleep(1);
-						Introducir_alumno(coordinador,&n_alumnos);
+						IntroducirAlumno(coordinador,&n_alumnos);
 						sleep(1);
 						break;
 					} else {
@@ -56,7 +56,7 @@ int Menu(bool coordinador){
 					}
 
 		case 2:	cout<<"\033[32;1m	Mostrar Agenda.\033[0m\n";
-					Mostrar_Agenda(coordinador);
+					Mostrar_Agenda(coordinador,&n_alumnos);
 					sleep(1);
 					break;
 
