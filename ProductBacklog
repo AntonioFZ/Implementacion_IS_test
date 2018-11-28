@@ -1,0 +1,4 @@
+HU1: Introducción Credenciales 	--- Función IntroduccionCredenciales()	---	Prioridad 1	--- Tiempo: 1 	horas. A
+HU2: Introducir Alumno         	--- Función IntroducirAlumno()		---	Prioridad 2	--- Tiempo: 1.5 horas. R
+HU3: Buscar Alumno             	--- Función				---	Prioridad 3
+HU5: Mostar Agenda		--- Función MostrarAgenda()		--- 	Prioridad 4  	--- Tiempo: 3 	horas.	A			
