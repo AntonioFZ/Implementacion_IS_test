@@ -194,7 +194,7 @@ void Mostrar_Agenda(bool coordinador,int *n_alumnos){
 	//Abrir fichero
 	sleep(1);
 	system("firefox temporal.html &");
-	sleep(1);
+	sleep(10);
 	system("rm temporal.html");
 
 	Menu(coordinador);

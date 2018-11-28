@@ -11,12 +11,25 @@ using namespace std;
 //Declaracion de variables
 
 
+bool IntroduccionCredenciales();
+
+
 //Funcion MAIN
 int main(){
 
 	//Limpiar Pantalla
 	system("clear");
 
+	//Creacion de variables
+	bool coordinador = IntroduccionCredenciales();
+
+	//Llamada a la funcion MENU DE OPCIONES
+	Menu(coordinador);
+	system("clear");
+	return 0;
+}
+
+bool IntroduccionCredenciales(){
 	//Creacion de variables
 	int clave;
 	int a;
@@ -75,8 +88,5 @@ int main(){
 		main();
 	}
 
-	//Llamada a la funcion MENU DE OPCIONES
-	Menu(coordinador);
-	system("clear");
-	return 0;
+	return coordinador;
 }
